@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "tsc && tsc-alias",
-    "eslint": "eslint --fix --ext src/**/*.{ts} tests/**/*.ts",
-    "format": "prettier --write '{src,tests}/**/*.ts' .eslintrc.js",
+    "eslint": "eslint --fix",
+    "format": "prettier --write '{src,tests}/**/*.ts'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,13 +20,12 @@
   },
   "homepage": "https://github.com/isamu/ts-template#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.5.0",
-    "@typescript-eslint/parser": "^7.5.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.2.0",
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "typescript-eslint": "^7.8.0"
   }
 }
