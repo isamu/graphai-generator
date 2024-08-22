@@ -6,9 +6,6 @@ export default [
   {
     files: ["{src,test,samles}/**/*.{js,ts,yaml,yml,json}"],
   },
-  {
-    ignores: ["lib/**/*", "*.ts"],
-  },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -28,6 +25,7 @@ export default [
         {
           argsIgnorePattern: "^__",
           varsIgnorePattern: "^__",
+          caughtErrorsIgnorePattern: "^__",
         },
       ],
       "linebreak-style": ["error", "unix"],
