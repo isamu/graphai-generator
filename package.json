@@ -7,7 +7,7 @@
     "build": "tsc && tsc-alias",
     "eslint": "eslint src --fix",
     "format": "prettier --write '{src,tests}/**/*.ts'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test --require ts-node/register ./tests/test_*.ts"
   },
   "repository": {
     "type": "git",
