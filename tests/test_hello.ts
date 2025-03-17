@@ -28,7 +28,34 @@ test("test", async () => {
   graphGenerator.addNode("output", output);
   graphGenerator.addEdge({ from: ["llm", "text"], to: ["output", "text"] });
 
-  console.log(JSON.stringify(graphGenerator.graph(), null, 2));
+  const expectGraph = {
+    version: 0.5,
+    nodes: {
+      llm: {
+        agent: "openAIAgent",
+        params: {
+          model: "gpt-4o",
+        },
+        inputs: {
+          prompt: "Explain ML's transformer in 100 words.",
+        },
+      },
+      output: {
+        agent: "copyAgent",
+        params: {
+          namedKey: "text",
+        },
+        console: {
+          after: true,
+        },
+        inputs: {
+          text: ":llm.text",
+        },
+      },
+    },
+  };
 
-  assert.deepStrictEqual(1 == 1, true);
+  // console.log(JSON.stringify(graphGenerator.graph(), null, 2));
+
+  assert.deepStrictEqual(expectGraph, graphGenerator.graph());
 });

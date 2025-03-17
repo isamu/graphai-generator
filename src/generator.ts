@@ -1,10 +1,13 @@
+import { graphDataLatestVersion, isComputedNodeData } from "graphai";
+import type { NodeData } from "graphai";
+
 export class GraphGenerator {
-  public nodes: Record<string, any> = {};
+  public nodes: Record<string, NodeData> = {};
 
   constructor() {
     this.nodes = {};
   }
-  public addNode(nodeId: string, node: unknown) {
+  public addNode(nodeId: string, node: NodeData) {
     this.nodes[nodeId] = node;
   }
   public addEdge(data: { from: string[]; to: string[] }) {
@@ -20,13 +23,16 @@ export class GraphGenerator {
     }
 
     const toNode = this.nodes[toNodeId];
-    if (!toNode.inputs) {
-      toNode.inputs = {};
+    if (isComputedNodeData(toNode)) {
+      if (!toNode.inputs) {
+        toNode.inputs = {};
+      }
+      toNode.inputs[toData[0]] = ":" + fromData.join(".");
     }
-    toNode.inputs[toData[0]] = ":" + fromData.join(".");
   }
   public graph() {
     return {
+      version: graphDataLatestVersion,
       nodes: this.nodes,
     };
   }

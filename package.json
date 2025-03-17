@@ -35,5 +35,8 @@
   "types": "./lib/index.d.ts",
   "directories": {
     "lib": "lib"
+  },
+  "dependencies": {
+    "graphai": "^1.0.2"
   }
 }
