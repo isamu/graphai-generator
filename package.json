@@ -10,6 +10,7 @@
     "build": "tsc && tsc-alias",
     "eslint": "eslint src --fix",
     "format": "prettier --write '{src,tests}/**/*.ts'",
+    "run": "node --require ts-node/register ./tests/run_hello.ts",
     "test": "node --test --require ts-node/register ./tests/test_*.ts"
   },
   "repository": {
@@ -37,6 +38,9 @@
     "lib": "lib"
   },
   "dependencies": {
+    "@graphai/openai_agent": "^1.0.2",
+    "@graphai/vanilla": "^1.0.9",
+    "dotenv": "^16.4.7",
     "graphai": "^1.0.2"
   }
 }
