@@ -13,13 +13,13 @@ export class GraphGenerator {
   public addEdge(data: { from: string[]; to: string[] }) {
     const { from: fromData, to: toData } = data;
     if (!fromData || !toData) {
-      throw new Error(`no data`);
+      throw new Error("no data");
     }
     const fromNodeId = fromData[0] ?? "";
     const toNodeId = toData.shift() ?? "";
 
     if (!this.nodes[fromNodeId] || !this.nodes[toNodeId]) {
-      throw new Error(`no data`);
+      throw new Error("no data");
     }
 
     const toNode = this.nodes[toNodeId];
