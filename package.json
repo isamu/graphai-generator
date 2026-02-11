@@ -42,7 +42,7 @@
   "dependencies": {
     "@graphai/openai_agent": "^1.0.2",
     "@graphai/vanilla": "^1.0.9",
-    "dotenv": "^16.4.7",
+    "dotenv": "^17.2.4",
     "graphai": "^1.0.2"
   }
 }
