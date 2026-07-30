@@ -29,8 +29,8 @@ const test = async () => {
   graphGenerator.addNode("output", output);
   graphGenerator.addEdge({ from: ["llm", "text"], to: ["output", "text"] });
   const graphData = graphGenerator.graph();
-  
-  const graphai = new GraphAI(graphData, {...vanilla, openAIAgent});
+
+  const graphai = new GraphAI(graphData, { ...vanilla, openAIAgent });
   const res = await graphai.run();
   console.log(res);
 };
