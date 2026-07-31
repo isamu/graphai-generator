@@ -1,0 +1,28 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  // Every tests/*.ts is a standalone script that exercises the library: test_hello.ts is the
+  // `node --test` target and run_hello.ts is a manually-run runner (the `run` script). Both are
+  // entry points, not analyzed source. src/index.ts is auto-detected by knip as a default entry
+  // (its default entry globs cover index files), so listing it here only triggers a "redundant
+  // entry" hint and it is omitted. knip still reports one config hint — package.json "main" is
+  // "src/index.js", an unbuilt path — which is left as-is (report-only) for a maintainer.
+  "entry": ["tests/**/*.ts"],
+  "project": ["src/**/*.ts"],
+  "ignoreExportsUsedInFile": true,
+  "includeEntryExports": false,
+  "rules": {
+    // Warn mode: every rule is "warn" (reported, exit 0) or "off". Nothing gates CI here.
+    "files": "warn",
+    "dependencies": "warn",
+    "devDependencies": "warn",
+    "unlisted": "warn",
+    "exports": "warn",
+    "types": "warn",
+    "unresolved": "off",
+    "binaries": "off",
+    "nsExports": "off",
+    "nsTypes": "off",
+    "enumMembers": "off",
+    "duplicates": "off",
+  },
+}
